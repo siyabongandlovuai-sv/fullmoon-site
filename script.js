@@ -1,23 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const nav = document.getElementById('main-nav');
-  const toggle = document.getElementById('nav-toggle');
+// --- Mobile navigation toggle ---
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-  toggle.addEventListener('click', function() {
-    if (nav.style.display === 'flex' || nav.style.display === 'block') {
-      nav.style.display = 'none';
-      toggle.textContent = '☰';
-    } else {
-      nav.style.display = 'block';
-      toggle.textContent = '✕';
-      nav.style.flexDirection = 'column';
-    }
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    navToggle.classList.toggle('open');
   });
+}
 
-  // Demo form handler
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(e) {
+// --- Contact form demo handler ---
+const contactForm = document.querySelector('form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thanks! This demo form does not send emails yet.');
-    form.reset();
+    contactForm.reset();
   });
-});
+}
+
+
